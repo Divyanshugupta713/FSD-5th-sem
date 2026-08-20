@@ -5,8 +5,9 @@ const h2=document.createElement('h2');
 h2.innerText='Data is loading....';
 console.log(h2);
 
-function cart(){
-    alert('Item is added to cart');
+function cart(item){
+    alert('Item added to cart: ' + item.id + ' - ' + item.title);
+
 }
 async function display(){
     try{
@@ -33,14 +34,23 @@ async function display(){
                 <td>${item.id}</td>
                 <td><img src="${item.image}" alt="${item.title}" width="100"></td>
                 <td>${item.title}</td>
-                <td>$${item.price.toFixed(2)}</td>
-                <td><button onclick="cart()">Add to Cart</button></td>
+                <td>${item.price.toFixed(2)}</td>
+                <td><button class="cartBtn">Add to Cart</button></td>
             </tr>
         </div>`;
         });
 
         table += `</table>`;
         div.innerHTML = table;
+                // Buttons ko select karo
+        const buttons = document.querySelectorAll('.cartBtn');
+
+        // Har button ko corresponding object do
+        buttons.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                cart(jsonData[index]);
+            });
+        });
     }
     catch(err){
         console.log("Error is" + err);
