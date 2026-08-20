@@ -4,6 +4,10 @@ const button=document.getElementById('btn')
 const h2=document.createElement('h2');
 h2.innerText='Data is loading....';
 console.log(h2);
+
+function cart(){
+    alert('Item is added to cart');
+}
 async function display(){
     try{
         // div.innerHTML='<h2>Hello Using DOM</h2>';
@@ -17,18 +21,20 @@ async function display(){
         let table=`<table border="2" cellspacing="1" cellpadding="10" style=" text-align: center;">
         <tr>
             <th>Id</th>
+            <th>Image</th>
             <th>Title</th>
             <th>Price</th>
-            <th>Image</th>
+            <th>Action</th>
         </tr>`;
 
         jsonData.forEach(item => {
             table += `<div>
             <tr>
                 <td>${item.id}</td>
+                <td><img src="${item.image}" alt="${item.title}" width="100"></td>
                 <td>${item.title}</td>
                 <td>$${item.price.toFixed(2)}</td>
-                <td><img src="${item.image}" alt="${item.title}" width="100"></td>
+                <td><button onclick="cart()">Add to Cart</button></td>
             </tr>
         </div>`;
         });
