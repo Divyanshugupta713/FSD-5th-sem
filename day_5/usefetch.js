@@ -12,7 +12,29 @@ async function display(){
         const jsonData= await serverdata.json();
         // console.log(jsonData[1].title)
 
-        div.innerHTML=`<h2 style="color: blue;">${JSON.stringify(jsonData)}</h2>`;
+        // div.innerHTML=`<h2 style="color: blue;">${JSON.stringify(jsonData)}</h2>`;
+
+        let table=`<table border="2" cellspacing="1" cellpadding="10" style=" text-align: center;">
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Image</th>
+        </tr>`;
+
+        jsonData.forEach(item => {
+            table += `<div>
+            <tr>
+                <td>${item.id}</td>
+                <td>${item.title}</td>
+                <td>$${item.price.toFixed(2)}</td>
+                <td><img src="${item.image}" alt="${item.title}" width="100"></td>
+            </tr>
+        </div>`;
+        });
+
+        table += `</table>`;
+        div.innerHTML = table;
     }
     catch(err){
         console.log("Error is" + err);
