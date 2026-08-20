@@ -17,6 +17,9 @@ async function display(){
     catch(err){
         console.log("Error is" + err);
     }
+    finally{
+        console.log("Data is loaded");
+    }
 
 }
 button.addEventListener('click',display);
