@@ -9,12 +9,19 @@ function App() {
   
 
   return (
-    <div style={{border:'2px solid black'}}>
-    
-        <ICard />
-     
+  <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background: "#f2f2f2",
+      }}
+    >
+      <ICard />
     </div>
   )
 }
+
 
 export default App
