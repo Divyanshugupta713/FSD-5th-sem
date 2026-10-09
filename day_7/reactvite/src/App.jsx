@@ -4,6 +4,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
 import StateHandling from './component/StateHandling'
+import SampleUseEffect from './component/sampleUseEffect'
 
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
         background: "#f2f2f2",
       }}
     >
-      <StateHandling />
+      {/* <StateHandling /> */}
+      <SampleUseEffect />
     </div>
   )
 }
